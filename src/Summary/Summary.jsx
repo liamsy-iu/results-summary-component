@@ -3,7 +3,7 @@ import getResults from "../api/getResults";
 import "./summary.css";
 
 const Summary = () => {
-  const { isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryFn: () => getResults(),
     staleTime: 30000,
   });
@@ -17,14 +17,6 @@ const Summary = () => {
     Verbal: { bg: "var(--lighter-green-teal)", text: "var(--green-teal)" },
     Visual: { bg: "var(--lighter-cobalt-blue)", text: "var(--cobalt-blue)" },
   };
-
-  if (isLoading) {
-    return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
 
   return (
     <div className="summary">
