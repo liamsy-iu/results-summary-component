@@ -1,0 +1,11 @@
+.results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
