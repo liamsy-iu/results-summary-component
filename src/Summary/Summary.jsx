@@ -21,27 +21,28 @@ const Summary = () => {
   return (
     <div className="summary">
       <h1>Summary</h1>
-      {data.map(({ category, score, icon }) => {
-        const colors = categoryColors[category] || {};
-        return (
-          <div
-            className="category"
-            key={category}
-            style={{
-              backgroundColor: colors.bg,
-            }}
-          >
-            <div className="category-icon">
-              <img src={icon} alt={category} />
-              <p style={{ color: colors.text }}>{category}</p>
+      {data &&
+        data.map(({ category, score, icon }) => {
+          const colors = categoryColors[category] || {};
+          return (
+            <div
+              className="category"
+              key={category}
+              style={{
+                backgroundColor: colors.bg,
+              }}
+            >
+              <div className="category-icon">
+                <img src={icon} alt={category} />
+                <p style={{ color: colors.text }}>{category}</p>
+              </div>
+              <div className="category-score">
+                <p>{score}</p>
+                <span>/100</span>
+              </div>
             </div>
-            <div className="category-score">
-              <p>{score}</p>
-              <span>/100</span>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
       <button>Continue</button>
     </div>
   );
